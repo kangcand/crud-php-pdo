@@ -12,7 +12,7 @@ if (isset($_POST['tombol_tambah'])) {
     if ($add_status) {
         header('Location: index.php');
     }
-    var_dump($tanggal_lahir);
+    // var_dump($tanggal_lahir);
 }
 ?>
 <html>

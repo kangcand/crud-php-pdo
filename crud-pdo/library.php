@@ -9,6 +9,7 @@ class Library
         $password = "123";
         $this->db = new PDO("mysql:host={$host};dbname={$dbname}", $username, $password);
     }
+
     public function add_data($nama_mahasiswa, $kelas, $tempat_lahir, $tanggal_lahir, $jurusan)
     {
         $data = $this->db->prepare('INSERT INTO tb_mahasiswa (nama_mahasiswa,kelas,tempat_lahir,tanggal_lahir,jurusan) VALUES (?, ?, ?, ?, ?)');
@@ -60,6 +61,41 @@ class Library
 
         $query->execute();
         return $query->rowCount();
+    }
+
+    // logika login
+    public function login($username, $password)
+    {
+        // buat query
+        $query = "SELECT * FROM users WHERE username = :username AND password = :password";
+
+        // persiapkan query
+        $stmt = $db->prepare($query);
+
+        // bind nilai
+        $stmt->bindValue(':username', $username);
+        $stmt->bindValue(':password', $password);
+
+        // jalankan query
+        $stmt->execute();
+
+        // cek apakah pengguna ada
+        if ($stmt->rowCount() == 1) {
+            // ambil data pengguna
+            $user = $stmt->fetch();
+
+            // simpan data pengguna di sesi
+            $_SESSION['user_id'] = $user['id'];
+            $_SESSION['username'] = $user['username'];
+            $_SESSION['name'] = $user['name'];
+
+            // redirect ke dashboard
+            header('Location: index.php');
+            exit;
+        } else {
+            // login gagal
+            $error = "Nama pengguna atau kata sandi salah";
+        }
     }
 
 }
