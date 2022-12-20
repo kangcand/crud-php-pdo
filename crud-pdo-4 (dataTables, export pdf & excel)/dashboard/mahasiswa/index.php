@@ -69,8 +69,8 @@ if (!isset($_SESSION['user_id'])) {
                                     </thead>
                                     <tbody>
                                         <?php
-                                            $no = 1;
-                                            foreach ($data_mahasiswa as $mhs) {?>
+$no = 1;
+    foreach ($data_mahasiswa as $mhs) {?>
                                         <tr>
                                             <td style="text-align: center;">
                                                 <?php echo $no++; ?>
