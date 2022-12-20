@@ -14,14 +14,14 @@ if (!isset($_SESSION['user_id'])) {
     $mhs = new Mahasiswa($conn);
 
     if (isset($_POST['simpan'])) {
-        $kd_mahasiswa = $_POST['kd_mahasiswa'];
+        // $kd_mahasiswa = $_POST['kd_mahasiswa'];
         $nama_mahasiswa = $_POST['nama_mahasiswa'];
         $kelas = $_POST['kelas'];
         $tempat_lahir = $_POST['tempat_lahir'];
         $tanggal_lahir = $_POST['tanggal_lahir'];
         $jurusan = $_POST['jurusan'];
 
-        $status_update = $msh->update($kd_mahasiswa, $nama_mahasiswa, $kelas, $tempat_lahir, $tanggal_lahir, $jurusan);
+        $status_update = $mhs->store($kd_mahasiswa, $nama_mahasiswa, $kelas, $tempat_lahir, $tanggal_lahir, $jurusan);
         if ($status_update) {
             header('Location:index.php');
         }

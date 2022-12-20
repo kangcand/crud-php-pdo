@@ -19,6 +19,7 @@ if (!isset($_SESSION['user_id'])) {
     }
 
     if (isset($_POST['simpan'])) {
+        $kd_mahasiswa = $_POST['kd_mahasiswa'];
         $nama_mahasiswa = $_POST['nama_mahasiswa'];
         $kelas = $_POST['kelas'];
         $tempat_lahir = $_POST['tempat_lahir'];
