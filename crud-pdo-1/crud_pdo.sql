@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Waktu pembuatan: 13 Des 2022 pada 20.00
+-- Waktu pembuatan: 15 Des 2022 pada 21.55
 -- Versi server: 10.3.37-MariaDB-0ubuntu0.20.04.1
 -- Versi PHP: 7.2.34-36+ubuntu20.04.1+deb.sury.org+1
 
@@ -41,7 +41,30 @@ CREATE TABLE `tb_mahasiswa` (
 --
 
 INSERT INTO `tb_mahasiswa` (`kd_mahasiswa`, `nama_mahasiswa`, `kelas`, `tempat_lahir`, `tanggal_lahir`, `jurusan`) VALUES
-(1, 'Candra H', 'TIF RM 20 CID', 'Bandung', '1998-08-03', 'Teknik Informatika');
+(9, 'Candra Herdiansyah', 'TIF RM 20 CID', 'Bandung', '2022-12-15', 'Teknik Industri'),
+(10, 'Candra ', 'TIF RM 20 ', 'Bandung Coret', '2003-06-10', 'Teknik Industri');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `users`
+--
+
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL,
+  `name` varchar(191) NOT NULL,
+  `username` varchar(191) NOT NULL,
+  `password` varchar(191) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Dumping data untuk tabel `users`
+--
+
+INSERT INTO `users` (`id`, `name`, `username`, `password`) VALUES
+(1, 'Candra', 'candra', 'ac43724f16e9241d990427ab7c8f4228'),
+(2, 'Admin', 'admin', 'ac43724f16e9241d990427ab7c8f4228'),
+(3, 'ujang', 'ujang', 'ac43724f16e9241d990427ab7c8f4228');
 
 --
 -- Indexes for dumped tables
@@ -54,6 +77,12 @@ ALTER TABLE `tb_mahasiswa`
   ADD PRIMARY KEY (`kd_mahasiswa`);
 
 --
+-- Indeks untuk tabel `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
@@ -61,7 +90,13 @@ ALTER TABLE `tb_mahasiswa`
 -- AUTO_INCREMENT untuk tabel `tb_mahasiswa`
 --
 ALTER TABLE `tb_mahasiswa`
-  MODIFY `kd_mahasiswa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `kd_mahasiswa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT untuk tabel `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
